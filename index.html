@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор ФОТ — расчёт фонда оплаты труда</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMTQiIGZpbGw9IiMxMzE0MTciLz4KICA8dGV4dCB4PSIzMiIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjIxIiBmaWxsPSIjZjBjOTNhIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QpNCe0KI8L3RleHQ+CiAgPGcgZmlsbD0iI2YwYzkzYSI+CiAgICA8cmVjdCB4PSI4IiAgeT0iMzYiIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iMjAiIHk9IjM2IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICAgIDxyZWN0IHg9IjMyIiB5PSIzNiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjkiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSI0NCIgeT0iMzYiIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iOCIgIHk9IjQ3IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICAgIDxyZWN0IHg9IjIwIiB5PSI0NyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjkiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSIzMiIgeT0iNDciIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iNDQiIHk9IjQ3IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICA8L2c+Cjwvc3ZnPg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMTQiIGZpbGw9IiMxMzE0MTciLz4KICA8dGV4dCB4PSIzMiIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjIxIiBmaWxsPSIjZjBjOTNhIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QpNCe0KI8L3RleHQ+CiAgPGcgZmlsbD0iI2YwYzkzYSI+CiAgICA8cmVjdCB4PSI4IiAgeT0iMzYiIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iMjAiIHk9IjM2IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICAgIDxyZWN0IHg9IjMyIiB5PSIzNiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjkiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSI0NCIgeT0iMzYiIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iOCIgIHk9IjQ3IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICAgIDxyZWN0IHg9IjIwIiB5PSI0NyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjkiIHJ4PSIyIi8+CiAgICA8cmVjdCB4PSIzMiIgeT0iNDciIHdpZHRoPSIxMCIgaGVpZ2h0PSI5IiByeD0iMiIvPgogICAgPHJlY3QgeD0iNDQiIHk9IjQ3IiB3aWR0aD0iMTAiIGhlaWdodD0iOSIgcng9IjIiLz4KICA8L2c+Cjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14161b;
+    --panel: #1d2027;
+    --panel-2: #232733;
+    --line: #323744;
+    --line-soft: #282c37;
+    --text: #e9e7e1;
+    --text-dim: #8b91a0;
+    --text-faint: #5b6070;
+    --amber: #e0a53c;
+    --amber-dim: #7a5f2a;
+    --green: #6fae7a;
+    --red: #d97362;
+    --blue: #6f9ecb;
+    --hover-row: rgba(255,255,255,0.015);
+    --bg-glow: radial-gradient(1200px 600px at 15% -10%, #1a2c33 0%, transparent 55%);
+    --seg-text: #14161b;
+    color-scheme: dark;
+  }
+  html[data-theme="light"]{
+    --bg: #f5f4f0;
+    --panel: #ffffff;
+    --panel-2: #f1efe8;
+    --line: #dedad0;
+    --line-soft: #e9e6dd;
+    --text: #1d1f24;
+    --text-dim: #6b7280;
+    --text-faint: #9a9fab;
+    --amber: #c48a2c;
+    --amber-dim: #ecd6ac;
+    --green: #3f8f52;
+    --red: #c1503f;
+    --blue: #3f76a8;
+    --hover-row: rgba(0,0,0,0.025);
+    --bg-glow: radial-gradient(1200px 600px at 15% -10%, #dfe9ea 0%, transparent 55%);
+    --seg-text: #14161b;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg-glow), var(--bg);
+    color:var(--text);
+    font-family:'Montserrat',system-ui,sans-serif;
+    line-height:1.4;
+    padding:28px 20px 80px;
+    min-height:100vh;
+    transition:background .2s, color .2s;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  /* ---------- theme toggle ---------- */
+  .theme-toggle{
+    background:var(--panel-2); border:1px solid var(--line); color:var(--text);
+    width:38px; height:38px; border-radius:50%; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:border-color .2s;
+  }
+  .theme-toggle:hover{border-color:var(--amber);}
+  .theme-toggle svg{width:18px; height:18px; stroke:var(--text);}
+  .theme-toggle .icon-moon{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block;}
+
+
+  /* ---------- header ---------- */
+  .head{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:20px; flex-wrap:wrap;
+    margin-bottom:26px; padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--amber); margin:0 0 8px;
+  }
+  h1{
+    font-family:'Montserrat',sans-serif; font-weight:600; font-size:32px;
+    letter-spacing:.01em; margin:0; color:var(--text);
+  }
+  .head-meta{font-size:12.5px; color:var(--text-dim); text-align:right; max-width:260px;}
+  @media (max-width:640px){ .head-meta{text-align:left; max-width:none;} }
+  .head-meta b{color:var(--text);font-weight:600;}
+
+  /* ---------- summary strip ---------- */
+  .summary{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    margin-bottom:28px; border-radius:6px; overflow:hidden;
+  }
+  @media (max-width:900px){ .summary{grid-template-columns:repeat(2,1fr);} .sum-card.hero{grid-column:1 / -1;} }
+  .sum-card{background:var(--panel); padding:16px 18px; min-width:0;}
+  .sum-card .lbl{
+    font-size:10.5px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--text-faint); font-family:'IBM Plex Mono',monospace;
+    margin-bottom:8px; white-space:normal; overflow-wrap:break-word;
+  }
+  .sum-card .val{
+    font-family:'IBM Plex Mono',monospace; font-size:21px; font-weight:600;
+    color:var(--text); white-space:normal; overflow-wrap:break-word; line-height:1.15;
+  }
+  .sum-card.hero .val{color:var(--amber); font-size:24px;}
+  .sum-card .sub{font-size:11px; color:var(--text-dim); margin-top:4px;}
+  .tag{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    padding:2px 7px; border-radius:3px; margin-top:6px; letter-spacing:.03em;
+  }
+  .tag.ok{background:#20372a; color:var(--green);}
+  .tag.warn{background:#3a2c20; color:var(--amber);}
+  .tag.bad{background:#3a2626; color:var(--red);}
+
+  /* ---------- panels ---------- */
+  .panel{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:6px; margin-bottom:20px; overflow:hidden;
+  }
+  .panel-head{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 20px; border-bottom:1px solid var(--line);
+    cursor:pointer; user-select:none;
+  }
+  .panel-head h2{
+    font-family:'Montserrat',sans-serif; font-size:15px; font-weight:500;
+    letter-spacing:.03em; text-transform:uppercase; color:var(--text); margin:0;
+    display:flex; align-items:center; gap:10px; line-height:1.4;
+  }
+  .panel-head h2 .n{color:var(--amber); font-family:'IBM Plex Mono',monospace; font-size:13px; flex-shrink:0;}
+  .chev{color:var(--text-faint); font-size:12px; transition:transform .2s; flex-shrink:0;}
+  .panel.collapsed .chev{transform:rotate(-90deg);}
+  .panel-body{padding:20px;}
+  .panel.collapsed .panel-body{display:none;}
+  .panel-note{font-size:12px; color:var(--text-dim); padding:16px 20px; margin-top:0; line-height:1.5;}
+
+  /* ---------- form grid ---------- */
+  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+
+  .subgroup{margin-bottom:22px;}
+  .subgroup:last-of-type{margin-bottom:0;}
+  .subgroup-title{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:12px;
+    padding-bottom:8px; border-bottom:1px solid var(--line-soft);
+  }
+  .grid-cards{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .grid-cards .pair-card.wide{grid-column:span 2;}
+  @media (max-width:900px){
+    .grid-cards{grid-template-columns:repeat(2,1fr);}
+    .grid-cards .pair-card.wide{grid-column:span 2;}
+  }
+  @media (max-width:560px){
+    .grid-cards{grid-template-columns:1fr;}
+    .grid-cards .pair-card.wide{grid-column:span 1;}
+  }
+  .pair-card{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:5px;
+    padding:12px 14px;
+    display:flex; flex-direction:column;
+  }
+  .pair-card .pair-label{
+    font-size:11.5px; color:var(--text-dim); margin-bottom:9px; line-height:1.3;
+  }
+  .pair-card > input,
+  .pair-card > .pair-row{
+    margin-top:auto;
+  }
+  .pair-card > input{
+    width:100%; background:var(--panel); border:1px solid var(--line);
+    color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:14.5px;
+    padding:9px 10px; border-radius:4px; outline:none;
+  }
+  .pair-card > input:focus{border-color:var(--amber);}
+  .pair-row{display:flex; gap:10px;}
+  .pair-row > div{flex:1; min-width:0;}
+  .pair-row label{
+    display:block; font-size:10px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--text-faint); margin-bottom:6px;
+  }
+  .pair-row input{
+    width:100%; background:var(--panel); border:1px solid var(--line);
+    color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:14.5px;
+    padding:9px 10px; border-radius:4px; outline:none;
+  }
+  .pair-row input:focus{border-color:var(--amber);}
+
+  .field label{
+    display:block; font-size:11.5px; color:var(--text-dim); margin-bottom:6px;
+    line-height:1.3; min-height:29px;
+  }
+  .field input{
+    width:100%; background:var(--panel-2); border:1px solid var(--line);
+    color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:14.5px;
+    padding:9px 10px; border-radius:4px; outline:none;
+  }
+  .field input:focus{border-color:var(--amber);}
+  .field .hint{font-size:10.5px; color:var(--text-faint); margin-top:5px;}
+
+  /* ---------- tables ---------- */
+  table{width:100%; border-collapse:collapse;}
+  th{
+    text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--text-faint); font-weight:500; padding:0 10px 10px; font-family:'IBM Plex Mono',monospace;
+  }
+  td{padding:6px 10px; vertical-align:middle;}
+  tbody tr{border-top:1px solid var(--line-soft);}
+  tbody tr:hover{background:var(--hover-row);}
+  td input[type=text], td input[type=number]{
+    width:100%; background:var(--panel-2); border:1px solid var(--line);
+    color:var(--text); font-family:'Montserrat',sans-serif; font-size:13.5px;
+    padding:7px 9px; border-radius:4px; outline:none;
+  }
+  td input::placeholder{color:var(--text-faint);}
+  td input[type=number]{font-family:'IBM Plex Mono',monospace;}
+  td input:focus{border-color:var(--amber);}
+  td select{
+    width:100%; background:var(--panel-2); border:1px solid var(--line);
+    color:var(--text); font-size:13px; padding:7px 8px; border-radius:4px; outline:none;
+  }
+  .num{font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:var(--text);}
+  .num.faint{color:var(--text-dim);}
+  .num.hero{color:var(--amber); font-weight:600;}
+  .col-del{width:34px; text-align:center;}
+  .del-btn{
+    background:none; border:1px solid var(--line); color:var(--text-faint);
+    width:26px; height:26px; border-radius:4px; cursor:pointer; font-size:14px; line-height:1;
+  }
+  .del-btn:hover{border-color:var(--red); color:var(--red);}
+  tfoot td{border-top:1px solid var(--line); padding-top:12px; font-weight:600;}
+  tfoot .num{font-size:14.5px;}
+
+  .rate-table td{padding:5px 10px;}
+  .rate-table input[type=number]{width:80px; text-align:right;}
+  .rate-table td:first-child{color:var(--text-dim); font-size:13px;}
+
+  .btn{
+    background:var(--panel-2); border:1px solid var(--line); color:var(--text);
+    font-family:'Montserrat',sans-serif; font-size:13px; font-weight:500;
+    padding:9px 16px; border-radius:5px; cursor:pointer; display:inline-flex;
+    align-items:center; gap:7px;
+  }
+  .btn:hover{border-color:var(--amber); color:var(--amber);}
+  .btn.primary{background:var(--amber); border-color:var(--amber); color:#1a1a1a;}
+  .btn.primary:hover{background:#eeb655; color:#1a1a1a;}
+  .btn.small{padding:6px 12px; font-size:12px;}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:800px){.two-col{grid-template-columns:1fr;}}
+
+  /* KPI lamps */
+  .lamps{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;}
+  .lamp{
+    display:flex; align-items:center; gap:9px; background:var(--panel-2);
+    border:1px solid var(--line); border-radius:5px; padding:9px 13px; flex:1; min-width:180px;
+  }
+  .lamp .dot{width:9px; height:9px; border-radius:50%; background:var(--text-faint); flex-shrink:0;}
+  .lamp.on .dot{background:var(--green); box-shadow:0 0 8px rgba(111,174,122,.6);}
+  .lamp .txt{font-size:12px; color:var(--text-dim);}
+  .lamp.on .txt{color:var(--text);}
+  .lamp .txt b{display:block; font-size:12.5px; color:inherit; font-weight:600;}
+
+  /* distribution bar */
+  .distbar{
+    display:flex; height:34px; border-radius:5px; overflow:hidden; margin-top:6px;
+    border:1px solid var(--line);
+  }
+  .distbar .seg{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--seg-text); font-weight:600;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 6px;
+    border-right:1px solid rgba(20,22,27,.35);
+  }
+  .distbar .seg:last-child{border-right:none;}
+  .dist-legend{display:flex; gap:14px; flex-wrap:wrap; margin-top:10px;}
+  .dist-legend .item{display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-dim);}
+  .dist-legend .sw{width:9px; height:9px; border-radius:2px; flex-shrink:0;}
+
+  .region-row{display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+  .region-row input{
+    background:var(--panel-2); border:1px solid var(--line); color:var(--text);
+    font-family:'IBM Plex Mono',monospace; font-size:13px; padding:7px 10px;
+    border-radius:4px; outline:none; width:160px;
+  }
+  .region-row label{font-size:11.5px; color:var(--text-dim);}
+
+  /* ---------- info tooltip ("i") ---------- */
+  .lbl-row{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px;}
+  .lbl-row .lbl{margin-bottom:0;}
+  .th-row{display:inline-flex; align-items:center; gap:5px;}
+  .lamp .txt{display:flex; align-items:center; flex-wrap:wrap; gap:0 6px;}
+  .info-btn{
+    width:16px; height:16px; border-radius:50%; border:1px solid var(--text-faint);
+    background:transparent; color:var(--text-faint); font-family:'IBM Plex Mono',monospace;
+    font-size:10px; font-weight:600; line-height:1; cursor:pointer; display:inline-flex;
+    align-items:center; justify-content:center; flex-shrink:0; padding:0;
+  }
+  .info-btn:hover, .info-btn.active{border-color:var(--amber); color:var(--amber);}
+  #info-tooltip{
+    position:fixed; max-width:280px; background:var(--panel-2); border:1px solid var(--line);
+    color:var(--text); font-size:12px; line-height:1.55; padding:10px 12px; border-radius:6px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35); z-index:1000; display:none;
+  }
+  #info-tooltip.open{display:block;}
+
+  footer{text-align:center; color:var(--text-faint); font-size:11.5px; margin-top:30px;}
+</style>
+</head>
+<body>
+<div id="info-tooltip"></div>
+<div class="wrap">
+
+  <div class="head">
+    <div>
+      <p class="eyebrow">Торговая точка · Расчёт ФОТ</p>
+      <h1>Калькулятор фонда оплаты труда</h1>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" title="Переключить тему" aria-label="Переключить тему">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <line x1="12" y1="2" x2="12" y2="4"></line>
+        <line x1="12" y1="20" x2="12" y2="22"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="2" y1="12" x2="4" y2="12"></line>
+        <line x1="20" y1="12" x2="22" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- PANEL: STORE INPUTS -->
+  <div class="panel" data-panel>
+    <div class="panel-head" data-toggle>
+      <h2><span class="n">01</span> Ввод данных</h2>
+      <span class="chev">▾</span>
+    </div>
+    <div class="panel-body">
+
+      <div class="subgroup">
+        <div class="subgroup-title">Точка (ТТ)</div>
+        <div class="grid-cards">
+          <div class="pair-card">
+            <div class="pair-label">Факт ТО (товарооборот)</div>
+            <input type="number" id="i_to" value="0" step="1000">
+          </div>
+          <div class="pair-card wide">
+            <div class="pair-label">Маржа ТТ</div>
+            <div class="pair-row">
+              <div><label>План</label><input type="number" id="i_marja_plan_tt" value="0" step="1000"></div>
+              <div><label>Факт</label><input type="number" id="i_marja_fact_tt" value="0" step="1000"></div>
+            </div>
+          </div>
+          <div class="pair-card">
+            <div class="pair-label">Кол-во ОС на ТТ</div>
+            <input type="number" id="i_os" value="0" step="1">
+          </div>
+          <div class="pair-card">
+            <div class="lbl-row">
+              <div class="pair-label" style="margin-bottom:0;">Маржа отрицательная</div>
+              <button class="info-btn" type="button" aria-label="Как используется" data-tip="Сумма маржи по позициям, ушедшим в минус (без НДС). По методике эта сумма прибавляется к марже факт при расчёте «маржи в расчёт» (a/b), — то есть отрицательная маржа не уменьшает, а увеличивает базу для бонуса, компенсируя менеджерам вынужденные уступки по цене.">i</button>
+            </div>
+            <input type="number" id="i_marja_otr" value="0" step="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="subgroup">
+        <div class="subgroup-title">Сектор</div>
+        <div class="grid-cards">
+          <div class="pair-card wide">
+            <div class="pair-label">Маржа сектора</div>
+            <div class="pair-row">
+              <div><label>План</label><input type="number" id="i_marja_plan_sector" value="0" step="1000"></div>
+              <div><label>Факт</label><input type="number" id="i_marja_fact_sector" value="0" step="1000"></div>
+            </div>
+          </div>
+          <div class="pair-card">
+            <div class="lbl-row">
+              <div class="pair-label" style="margin-bottom:0;">Маржа отрицательная сектора</div>
+              <button class="info-btn" type="button" aria-label="Как используется" data-tip="Сумма отрицательной маржи по сектору (территории), без НДС. По методике % выполнения плана территории по марже считается «с учётом суммы отрицательной маржи без НДС», то есть эта сумма прибавляется к марже сектора факт: (Маржа сектора факт + Маржа отрицательная сектора) ÷ Маржа сектора план.">i</button>
+            </div>
+            <input type="number" id="i_marja_otr_sector" value="0" step="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="subgroup">
+        <div class="subgroup-title">Параметры расчёта</div>
+        <div class="grid-cards">
+          <div class="pair-card">
+            <div class="pair-label">Доля от ФОТтт для коллективного фонда, %</div>
+            <input type="number" id="i_share" value="37.5" step="0.5">
+          </div>
+          <div class="pair-card">
+            <div class="pair-label">Порог маржи, % от ТО (выше — сверх-часть сглаживается вдвое)</div>
+            <input type="number" id="i_threshold" value="26" step="0.5">
+          </div>
+          <div class="pair-card">
+            <div class="lbl-row">
+              <div class="pair-label" style="margin-bottom:0;">Вознаграждение с КД (опционально)</div>
+              <button class="info-btn" type="button" aria-label="Как используется" data-tip="Если у ТТ есть курьерская доставка, вознаграждение с КД добавляется к итоговому ФОТ отдельным слагаемым (Итог = вознаграждение магазина + вознаграждение с территории + вознаграждение с КД). Введите уже готовую сумму вознаграждения с КД, если она применима к точке — иначе оставьте 0.">i</button>
+            </div>
+            <input type="number" id="i_kd" value="0" step="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="lamps" id="lamps">
+        <div class="lamp" id="lamp-x"><span class="dot"></span><span class="txt"><b id="lamp-x-t">—</b>Основной KPI<button class="info-btn" type="button" aria-label="Как считается" data-tip="Основной KPI выполнен (2/2), если факт по марже ТТ ≥ плана и ошибок CRM (ОС) нет; частично (1/2) — выполнено одно из двух условий; не выполнен (0/2) — не выполнены оба (план не выполнен И есть ОС).">i</button></span></div>
+        <div class="lamp" id="lamp-y"><span class="dot"></span><span class="txt"><b id="lamp-y-t">—</b>Дополнительный KPI (маржа ≥120%)<button class="info-btn" type="button" aria-label="Как считается" data-tip="Начисляется только если основной KPI выполнен полностью (2/2, т.е. план по марже выполнен и ошибок CRM нет) и факт маржи ТТ составляет 120% от плана и более.">i</button></span></div>
+        <div class="lamp" id="lamp-thr"><span class="dot"></span><span class="txt"><b id="lamp-thr-t">—</b>Маржа выше порога<button class="info-btn" type="button" aria-label="Как считается" data-tip="Показывает, превышает ли (маржа факт + маржа отрицательная) сумму «порог × ТО». Если да — часть сверх порога («b») делится пополам при расчёте маржи в расчёт. Если нет — вся сумма идёт в расчёт без деления.">i</button></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary" id="summary">
+    <div class="sum-card">
+      <div class="lbl-row">
+        <div class="lbl">Маржинальность факт</div>
+        <button class="info-btn" type="button" aria-label="Как считается" data-tip="Маржинальность факт = Маржа ТТ факт ÷ ТО факт (без учёта отрицательной маржи). Показывает, какую долю от товарооборота составляет маржа, и сравнивается с порогом (по умолчанию 26%), чтобы определить, делится ли часть маржи пополам при расчёте бонуса.">i</button>
+      </div>
+      <div class="val" id="s-marj">—</div>
+      <div class="sub" id="s-marj-sub">факт / план</div>
+    </div>
+    <div class="sum-card">
+      <div class="lbl-row">
+        <div class="lbl">KPI статус</div>
+        <button class="info-btn" type="button" aria-label="Как считается" data-tip="Определяется по двум условиям: (1) факт по марже ТТ ≥ плана; (2) нет ошибок CRM (ОС). Итог: оба условия не выполнены → «0 KPI» (коэфф. 5,20%); выполнено ровно одно из двух → «1 KPI» (5,33%); оба выполнены, маржа 100–119% → «2 KPI» (5,46%); оба выполнены и маржа ≥120% от плана → «2 KPI + 120%» (6,24%). Значения коэффициентов настраиваются в разделе 02.">i</button>
+      </div>
+      <div class="val" id="s-kpi">—</div>
+      <div class="sub" id="s-kpi-coef">коэфф. —</div>
+    </div>
+    <div class="sum-card">
+      <div class="lbl-row">
+        <div class="lbl">Собственный ФОТ</div>
+        <button class="info-btn" type="button" aria-label="Как считается" data-tip="Формула из методики: (a×x×z) + (b×y×z), где a — маржа (вкл. отрицательную) до порога (напр. 26% от ТО), b — маржа сверх порога, x — базовый коэффициент, y — коэффициент сверх маржи (= x/2, «сверх маржу просто делим пополам»), z — модификатор KPI. В калькуляторе: Маржа в расчёт = a + b/2, а x×z уже объединены в один коэффициент KPI (5,20–6,24%). Собственный ФОТ = Маржа в расчёт × коэффициент KPI.">i</button>
+      </div>
+      <div class="val" id="s-own">—</div>
+      <div class="sub">маржа в расчёт × коэфф.</div>
+    </div>
+    <div class="sum-card">
+      <div class="lbl-row">
+        <div class="lbl">Коллективный ФОТ</div>
+        <button class="info-btn" type="button" aria-label="Как считается" data-tip="Он же «вознаграждение с территории». Формула из методики: Вознаграждение магазина × 37,5% × % выполнения плана территории по марже. В калькуляторе: Коллективный ФОТ = Собственный ФОТ × Доля для коллективного фонда (%) × ((Маржа сектора факт + Маржа отрицательная сектора) ÷ Маржа сектора план).">i</button>
+      </div>
+      <div class="val" id="s-coll">—</div>
+      <div class="sub">от показателей сектора</div>
+    </div>
+    <div class="sum-card hero">
+      <div class="lbl-row">
+        <div class="lbl">Итого ФОТ к распределению</div>
+        <button class="info-btn" type="button" aria-label="Как считается" data-tip="Итоговое вознаграждение ТТ = Вознаграждение магазина (Собственный ФОТ) + Вознаграждение с территории (Коллективный ФОТ) + Вознаграждение с КД, если применимо. Эта сумма далее распределяется между сотрудниками пропорционально их ставке должности и отработанным часам (раздел 03).">i</button>
+      </div>
+      <div class="val" id="s-total">—</div>
+      <div class="sub" id="s-total-sub">на всех сотрудников</div>
+    </div>
+  </div>
+
+
+  <!-- PANEL: SETTINGS (rates & kpi table) -->
+  <div class="panel collapsed" data-panel>
+    <div class="panel-head" data-toggle>
+      <h2><span class="n">02</span> Ставки должностей и KPI-коэффициенты</h2>
+      <span class="chev">▾</span>
+    </div>
+    <div class="panel-note">Значения по умолчанию — для региона ЦФО. При работе с другим регионом измените коэффициенты KPI ниже.</div>
+    <div class="panel-body">
+      <div class="two-col">
+        <div>
+          <div class="region-row">
+            <label>Регион коэффициентов:</label>
+            <input type="text" id="region-name" value="ЦФО">
+          </div>
+          <table class="rate-table" id="rate-table">
+            <thead><tr><th>Должность</th><th>Ставка</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <button class="btn small" id="add-position" style="margin-top:10px;">+ Должность</button>
+        </div>
+        <div>
+          <label style="display:block;font-size:11.5px;color:var(--text-dim);margin-bottom:10px;">Коэффициент собственного ФОТ (% от маржи в расчёт) — по числу выполненных KPI</label>
+          <table class="rate-table" id="kpi-table">
+            <thead><tr><th>Условие</th><th>Коэфф., %</th></tr></thead>
+            <tbody>
+              <tr><td>0 KPI</td><td><input type="number" id="kpi0" value="5.2" step="0.01"></td></tr>
+              <tr><td>1 KPI</td><td><input type="number" id="kpi1" value="5.33" step="0.01"></td></tr>
+              <tr><td>2 KPI</td><td><input type="number" id="kpi2" value="5.46" step="0.01"></td></tr>
+              <tr><td>2 KPI + маржа ≥120%</td><td><input type="number" id="kpi3" value="6.24" step="0.01"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: STAFF -->
+  <div class="panel" data-panel>
+    <div class="panel-head" data-toggle>
+      <h2><span class="n">03</span> Сотрудники</h2>
+      <span class="chev">▾</span>
+    </div>
+    <div class="panel-body">
+      <div style="overflow-x:auto;">
+      <table id="staff-table" style="min-width:760px;">
+        <thead>
+          <tr>
+            <th style="width:18%">ФИО</th>
+            <th style="width:9%">Часы</th>
+            <th style="width:19%">Должность</th>
+            <th style="width:8%"><span class="th-row">Ставка<button class="info-btn" type="button" aria-label="Как считается" data-tip="«a» в формуле распределения. Ставка занимаемой должности — фиксированный коэффициент из справочника (напр. директор магазина — 11, старший менеджер — 8, менеджер по продажам — 7, кладовщик — 5), задаётся в разделе «Ставки должностей».">i</button></span></th>
+            <th style="width:10%"><span class="th-row">Доля в ФОТтт<button class="info-btn" type="button" aria-label="Как считается" data-tip="Доля сотрудника = Ставка × Часы сотрудника ÷ Общая сумма часов по всем сотрудникам (включая подмены). По методике: b/c — доля отработанного времени от общего количества часов, умноженная на ставку должности.">i</button></span></th>
+            <th style="width:14%"><span class="th-row">ЗП факт<button class="info-btn" type="button" aria-label="Как считается" data-tip="Формула из методики: x × (a × (b/c)), где x — итоговое вознаграждение ТТ, a — ставка должности, b — часы сотрудника, c — общая сумма часов всех сотрудников. Эквивалентно: ЗП = Итого ФОТ (факт) ÷ Сумма долей всех сотрудников × Доля сотрудника.">i</button></span></th>
+            <th style="width:14%"><span class="th-row">Прогноз ЗП<button class="info-btn" type="button" aria-label="Как считается" data-tip="Та же формула x × (a × (b/c)), но x — прогнозное Итого ФОТ на конец месяца вместо фактического. Часы (b) и ставки (a) сотрудников берутся те же, что и для факта.">i</button></span></th>
+            <th class="col-del"></th>
+          </tr>
+        </thead>
+        <tbody id="staff-body"></tbody>
+        <tfoot>
+          <tr>
+            <td class="num">Итого</td>
+            <td class="num" id="f-hours">0</td>
+            <td></td>
+            <td></td>
+            <td class="num" id="f-share">0</td>
+            <td class="num hero" id="f-salary">0 ₽</td>
+            <td class="num hero" id="f-forecast">0 ₽</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      </div>
+      <button class="btn primary small" id="add-staff" style="margin-top:14px;">+ Сотрудник</button>
+
+      <div style="margin-top:22px;">
+        <label style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-dim);margin-bottom:8px;">Распределение ФОТ между сотрудниками (факт)<button class="info-btn" type="button" aria-label="Как считается" data-tip="Доля каждого сотрудника в итоговом ФОТ (факт), рассчитанная по его ставке и отработанным часам относительно всех сотрудников.">i</button></label>
+        <div class="distbar" id="distbar"></div>
+        <div class="dist-legend" id="dist-legend"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: FORECAST -->
+  <div class="panel" data-panel>
+    <div class="panel-head" data-toggle>
+      <h2><span class="n">04</span> Прогноз на конец месяца</h2>
+      <span class="chev">▾</span>
+    </div>
+    <div class="panel-note" id="fc-note">Линейная экстраполяция фактических показателей на весь месяц по числу полных прошедших дней. Текущий (незавершённый) день в расчёт не включается, так как выручка и маржа за него ещё не зафиксированы.</div>
+    <div class="panel-body">
+
+      <div class="grid-cards" style="margin-bottom:20px;">
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Сегодня / учтено дней</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Текущий (незавершённый) день исключается из расчёта прогноза, так как выручка и маржа за него ещё не зафиксированы полностью. Используются только полные прошедшие дни месяца: если сегодня 15-е число, в расчёт идут 14 полных дней.">i</button>
+          </div>
+          <div class="num" id="fc-days" style="font-size:16px;">—</div>
+        </div>
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Прогноз ТО на конец месяца</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Прогноз ТО = Факт ТО ÷ Число полных прошедших дней (без сегодняшнего) × Дней в месяце. Линейная экстраполяция факта на весь месяц по среднедневной динамике.">i</button>
+          </div>
+          <div class="num" id="fc-to" style="font-size:16px;">—</div>
+        </div>
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Прогноз маржи ТТ (факт)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Прогноз маржи ТТ = Факт маржи ТТ ÷ Число полных прошедших дней (без сегодняшнего) × Дней в месяце. Тем же способом экстраполируется и отрицательная маржа — см. карточку ниже.">i</button>
+          </div>
+          <div class="num" id="fc-marja-tt" style="font-size:16px;">—</div>
+        </div>
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Прогноз маржи сектора (факт)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Прогноз маржи сектора = Факт маржи сектора ÷ Число полных прошедших дней (без сегодняшнего) × Дней в месяце.">i</button>
+          </div>
+          <div class="num" id="fc-marja-sector" style="font-size:16px;">—</div>
+        </div>
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Прогноз отриц. маржи ТТ</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Прогноз отрицательной маржи ТТ = Факт отрицательной маржи ТТ ÷ Число полных прошедших дней (без сегодняшнего) × Дней в месяце. Используется при расчёте маржи в расчёт (a/b), как и в факте.">i</button>
+          </div>
+          <div class="num" id="fc-marja-otr" style="font-size:16px;">—</div>
+        </div>
+        <div class="pair-card">
+          <div class="lbl-row">
+            <div class="pair-label" style="margin-bottom:0;">Прогноз отриц. маржи сектора</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Прогноз отрицательной маржи сектора = Факт отрицательной маржи сектора ÷ Число полных прошедших дней (без сегодняшнего) × Дней в месяце. Прибавляется к прогнозу маржи сектора при расчёте % выполнения плана территории.">i</button>
+          </div>
+          <div class="num" id="fc-marja-otr-sector" style="font-size:16px;">—</div>
+        </div>
+      </div>
+
+      <div class="summary" style="margin-bottom:0;">
+        <div class="sum-card">
+          <div class="lbl-row">
+            <div class="lbl">Маржинальность (прогноз)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="То же, что и «Маржинальность факт» (Маржа ТТ ÷ ТО, без отрицательной маржи), но на основе спрогнозированных (экстраполированных на весь месяц) значений вместо текущего факта.">i</button>
+          </div>
+          <div class="val" id="fc-marj">—</div>
+        </div>
+        <div class="sum-card">
+          <div class="lbl-row">
+            <div class="lbl">KPI статус (прогноз)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="KPI статус, рассчитанный по прогнозным (экстраполированным) значениям ТО и маржи ТТ по тем же условиям, что и факт — показывает, какой коэффициент ожидается к концу месяца при сохранении текущей динамики.">i</button>
+          </div>
+          <div class="val" id="fc-kpi">—</div>
+        </div>
+        <div class="sum-card">
+          <div class="lbl-row">
+            <div class="lbl">Собственный ФОТ (прогноз)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Собственный ФОТ, рассчитанный по прогнозным (экстраполированным) значениям ТО, маржи ТТ и отрицательной маржи: Маржа в расчёт (прогноз) × коэффициент по прогнозному KPI. Формула та же, что и для факта.">i</button>
+          </div>
+          <div class="val" id="fc-own">—</div>
+        </div>
+        <div class="sum-card">
+          <div class="lbl-row">
+            <div class="lbl">Коллективный ФОТ (прогноз)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Коллективный ФОТ, рассчитанный по прогнозным значениям: Собственный ФОТ (прогноз) × Доля для коллективного фонда × ((Маржа сектора прогноз + Маржа отрицательная сектора прогноз) ÷ план сектора).">i</button>
+          </div>
+          <div class="val" id="fc-coll">—</div>
+        </div>
+        <div class="sum-card hero">
+          <div class="lbl-row">
+            <div class="lbl">Итого ФОТ (прогноз)</div>
+            <button class="info-btn" type="button" aria-label="Как считается" data-tip="Ожидаемая сумма ФОТ на конец месяца при сохранении текущей динамики: Собственный ФОТ (прогноз) + Коллективный ФОТ (прогноз) + Вознаграждение с КД (не масштабируется, вводится как фиксированная сумма).">i</button>
+          </div>
+          <div class="val" id="fc-total">—</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+const fmt = n => {
+  if (!isFinite(n)) return '—';
+  return Math.round(n).toLocaleString('ru-RU') + ' ₽';
+};
+const fmtNum = n => isFinite(n) ? n.toLocaleString('ru-RU', {maximumFractionDigits:2}) : '—';
+const fmtPct = n => isFinite(n) ? (n*100).toLocaleString('ru-RU', {maximumFractionDigits:1}) + '%' : '—';
+const val = id => parseFloat(document.getElementById(id).value) || 0;
+
+const PALETTE = ['#e0a53c','#6f9ecb','#6fae7a','#d97362','#a892cb','#5fb8b0','#c98fbf','#c9b25f'];
+
+let positions = [
+  {name:'Директор магазина', rate:11},
+  {name:'Старший менеджер по продажам', rate:8},
+  {name:'Менеджер по продажам', rate:7},
+  {name:'Специалист по выдаче товара', rate:6},
+  {name:'Кладовщик', rate:5},
+  {name:'Кассир', rate:3},
+];
+
+let staff = [
+  {name:'', hours:227, position:'Менеджер по продажам'},
+  {name:'', hours:153, position:'Менеджер по продажам'},
+  {name:'', hours:29, position:'Менеджер по продажам'},
+];
+
+function renderPositionTable(){
+  const tbody = document.querySelector('#rate-table tbody');
+  tbody.innerHTML = '';
+  positions.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><input type="text" data-pos-name="${i}" value="${p.name}"></td>
+      <td><input type="number" data-pos-rate="${i}" value="${p.rate}" step="0.5"></td>
+      <td><button class="del-btn" data-pos-del="${i}">×</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+  tbody.querySelectorAll('[data-pos-name]').forEach(el=>{
+    el.addEventListener('input', e=>{
+      const i = +e.target.dataset.posName;
+      const oldName = positions[i].name;
+      positions[i].name = e.target.value;
+      staff.forEach(s=>{ if(s.position===oldName) s.position = e.target.value; });
+      renderStaffTable(); // refresh dropdown labels
+      compute();
+      saveStaff();
+    });
+  });
+  tbody.querySelectorAll('[data-pos-rate]').forEach(el=>{
+    el.addEventListener('input', e=>{
+      positions[+e.target.dataset.posRate].rate = parseFloat(e.target.value)||0;
+      compute();
+    });
+  });
+  tbody.querySelectorAll('[data-pos-del]').forEach(el=>{
+    el.addEventListener('click', e=>{
+      const i = +e.target.dataset.posDel;
+      positions.splice(i,1);
+      renderPositionTable();
+      renderStaffTable();
+      compute();
+    });
+  });
+}
+
+function renderStaffTable(){
+  const tbody = document.getElementById('staff-body');
+  tbody.innerHTML = '';
+  staff.forEach((s, i) => {
+    const tr = document.createElement('tr');
+    const opts = positions.map(p=>`<option value="${p.name}" ${p.name===s.position?'selected':''}>${p.name}</option>`).join('');
+    tr.innerHTML = `
+      <td><input type="text" data-s-name="${i}" value="${s.name}" placeholder="Имя сотрудника"></td>
+      <td><input type="number" data-s-hours="${i}" value="${s.hours}" step="1" min="0"></td>
+      <td><select data-s-pos="${i}">${opts}</select></td>
+      <td class="num faint" data-out-rate="${i}">—</td>
+      <td class="num faint" data-out-share="${i}">—</td>
+      <td class="num hero" data-out-salary="${i}">—</td>
+      <td class="num" style="color:var(--blue);" data-out-forecast="${i}">—</td>
+      <td class="col-del"><button class="del-btn" data-s-del="${i}">×</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+  tbody.querySelectorAll('[data-s-name]').forEach(el=>el.addEventListener('input', e=>{
+    staff[+e.target.dataset.sName].name = e.target.value; compute(); saveStaff();
+  }));
+  tbody.querySelectorAll('[data-s-hours]').forEach(el=>el.addEventListener('input', e=>{
+    staff[+e.target.dataset.sHours].hours = parseFloat(e.target.value)||0; compute(); saveStaff();
+  }));
+  tbody.querySelectorAll('[data-s-pos]').forEach(el=>el.addEventListener('change', e=>{
+    staff[+e.target.dataset.sPos].position = e.target.value; compute(); saveStaff();
+  }));
+  tbody.querySelectorAll('[data-s-del]').forEach(el=>el.addEventListener('click', e=>{
+    staff.splice(+e.target.dataset.sDel,1); renderStaffTable(); compute(); saveStaff();
+  }));
+}
+
+function computeBonusPool(to, marjaPlanTT, marjaFactTT, marjaOtr, marjaPlanSector, marjaFactSector, marjaOtrSector, os, share, threshold, kpiCoefs, kd){
+  // --- Маржинальность факт (для дисплея и для сравнения с порогом) ---
+  // Официально: "маржа факт поделили на выручку факт" — БЕЗ отрицательной маржи.
+  const T15 = to !== 0 ? marjaFactTT / to : 0;
+
+  // --- Маржа в расчёт: a + b/2, где ---
+  // a — оборот маржи торгового зала (вкл. отрицательную маржу) ДО 26% от оборота ТЗ
+  // b — оборот маржи торгового зала (вкл. отрицательную маржу) СВЕРХ 26% от оборота ТЗ
+  // "вкл. отрицательную маржу" = отрицательная маржа прибавляется к марже факт при расчёте a/b.
+  const effMarja = marjaFactTT + marjaOtr;      // маржа факт + отрицательная маржа
+  const capAtThreshold = threshold * to;         // порог, руб. (напр. 26% от ТО)
+  const a = Math.min(effMarja, capAtThreshold);
+  const b = Math.max(effMarja - capAtThreshold, 0);
+  const overThreshold = effMarja > capAtThreshold;
+  const T5 = a + b/2; // маржа в расчёт
+
+  // --- Модификаторы KPI (X/Y/Z) ---
+  const V5 = marjaPlanTT !== 0 ? marjaFactTT / marjaPlanTT : 0; // % выполнения плана по марже
+  const W5 = os; // кол-во ошибок CRM / ОС
+  let X5;
+  if (W5 < 1) { X5 = V5 < 1 ? 1 : 2; }
+  else if (W5 > 0) { X5 = V5 < 1 ? 0 : 1; }
+  else { X5 = 0; }
+  const Y5 = X5 > 1 ? (V5 >= 1.2 ? 1 : 0) : 0;
+  const Z5 = X5 + Y5; // 0..3 → индекс коэффициента (уже включает базовый x и модификатор z)
+  const AA5 = kpiCoefs[Math.min(Z5,3)] ?? 0;
+  const AB5 = T5 * AA5 / 100; // Собственный ФОТ (= вознаграждение магазина)
+
+  // --- Коллективный ФОТ (вознаграждение с территории) ---
+  // % выполнения территории по марже — с учётом суммы отрицательной маржи по сектору без НДС.
+  const effMarjaSector = marjaFactSector + marjaOtrSector;
+  const V9 = marjaPlanSector !== 0 ? effMarjaSector / marjaPlanSector : 0; // % выполнения территории по марже
+  const AA9 = V9;
+  const AB9 = AB5 * share * AA9; // = a(вознагр. магазина) × 37,5% × b(% territory)
+
+  // --- Итоговое вознаграждение ТТ = вознаграждение магазина + вознаграждение с территории (+ КД, если есть) ---
+  const AB11 = AB5 + AB9 + kd;
+
+  return {T15, T5, a, b, overThreshold, V5, X5, Y5, Z5, AA5, AB5, V9, AA9, AB9, AB11, effMarjaSector};
+}
+
+
+
+function compute(){
+  // --- store-level bonus pool (факт) ---
+  const to = val('i_to');
+  const marjaPlanTT = val('i_marja_plan_tt');
+  const marjaFactTT = val('i_marja_fact_tt');
+  const marjaOtr = val('i_marja_otr');
+  const marjaPlanSector = val('i_marja_plan_sector');
+  const marjaFactSector = val('i_marja_fact_sector');
+  const marjaOtrSector = val('i_marja_otr_sector');
+  const os = val('i_os');
+  const share = val('i_share')/100;
+  const threshold = val('i_threshold')/100;
+  const kd = val('i_kd');
+
+  const kpiCoefs = [val('kpi0'), val('kpi1'), val('kpi2'), val('kpi3')];
+
+  const r = computeBonusPool(to, marjaPlanTT, marjaFactTT, marjaOtr, marjaPlanSector, marjaFactSector, marjaOtrSector, os, share, threshold, kpiCoefs, kd);
+  const {T15, V5, X5, Y5, Z5, AA5, AB5, AB9, AB11, overThreshold} = r;
+
+  // --- summary UI ---
+  document.getElementById('s-marj').textContent = fmtPct(T15);
+  document.getElementById('s-marj-sub').textContent = `${fmtPct(V5)} от плана ТТ`;
+  const kpiLabels = ['0 KPI','1 KPI','2 KPI','2 KPI + 120%'];
+  document.getElementById('s-kpi').textContent = kpiLabels[Math.min(Z5,3)];
+  document.getElementById('s-kpi-coef').textContent = `коэфф. ${fmtNum(AA5)}%`;
+  document.getElementById('s-own').textContent = fmt(AB5);
+  document.getElementById('s-coll').textContent = fmt(AB9);
+  document.getElementById('s-total').textContent = fmt(AB11);
+
+  // lamps
+  setLamp('lamp-x', X5>=1, X5>=2 ? 'Выполнен (2/2)' : (X5===1?'Частично (1/2)':'Не выполнен'));
+  setLamp('lamp-y', Y5===1, Y5===1?'Начислен':'Не начислен');
+  setLamp('lamp-thr', overThreshold, overThreshold?'Да — бонус сглажен ×0.5':'Нет — маржа в расчёт = факт + отриц. маржа');
+
+  // --- прогноз на конец месяца: линейная экстраполяция факта по дате ---
+  // текущий (незавершённый) день исключается из расчёта, т.к. выручка и маржа
+  // за него ещё не зафиксированы полностью — экстраполяция идёт по числу ПОЛНЫХ прошедших дней.
+  const now = new Date();
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+  const dayOfMonth = now.getDate();
+  const daysElapsed = dayOfMonth - 1; // полные завершённые дни, без сегодняшнего
+  const scaleUp = daysElapsed > 0 ? daysInMonth / daysElapsed : 1;
+
+  const fTo = to * scaleUp;
+  const fMarjaFactTT = marjaFactTT * scaleUp;
+  const fMarjaOtr = marjaOtr * scaleUp;
+  const fMarjaFactSector = marjaFactSector * scaleUp;
+  const fMarjaOtrSector = marjaOtrSector * scaleUp;
+  // план, порог, доля, ОС и КД — не масштабируются по времени (это целевые/фиксированные величины)
+  const fr = computeBonusPool(fTo, marjaPlanTT, fMarjaFactTT, fMarjaOtr, marjaPlanSector, fMarjaFactSector, fMarjaOtrSector, os, share, threshold, kpiCoefs, kd);
+
+  const dateStr = now.toLocaleDateString('ru-RU', {day:'numeric', month:'long'});
+  document.getElementById('fc-days').textContent = daysElapsed > 0
+    ? `${dateStr} · учтено ${daysElapsed} из ${daysInMonth} дн. (сегодня не учитывается)`
+    : `${dateStr} · данных за полные дни ещё нет`;
+  document.getElementById('fc-to').textContent = fmt(fTo);
+  document.getElementById('fc-marja-tt').textContent = fmt(fMarjaFactTT);
+  document.getElementById('fc-marja-sector').textContent = fmt(fMarjaFactSector);
+  document.getElementById('fc-marja-otr').textContent = fmt(fMarjaOtr);
+  document.getElementById('fc-marja-otr-sector').textContent = fmt(fMarjaOtrSector);
+  document.getElementById('fc-marj').textContent = fmtPct(fr.T15);
+  document.getElementById('fc-kpi').textContent = kpiLabels[Math.min(fr.Z5,3)];
+  document.getElementById('fc-own').textContent = fmt(fr.AB5);
+  document.getElementById('fc-coll').textContent = fmt(fr.AB9);
+  document.getElementById('fc-total').textContent = fmt(fr.AB11);
+
+  // --- staff distribution (факт + прогноз) ---
+  const rateOf = name => (positions.find(p=>p.name===name)||{rate:0}).rate;
+  const sumHours = staff.reduce((a,s)=>a+ (parseFloat(s.hours)||0), 0);
+  const weights = staff.map(s => sumHours>0 ? rateOf(s.position) * (parseFloat(s.hours)||0) / sumHours : 0);
+  const totalWeight = weights.reduce((a,b)=>a+b,0);
+  const salaries = weights.map(w => totalWeight>0 ? AB11/totalWeight*w : 0);
+  const forecastSalaries = weights.map(w => totalWeight>0 ? fr.AB11/totalWeight*w : 0);
+
+  staff.forEach((s,i)=>{
+    const rateCell = document.querySelector(`[data-out-rate="${i}"]`);
+    const shareCell = document.querySelector(`[data-out-share="${i}"]`);
+    const salCell = document.querySelector(`[data-out-salary="${i}"]`);
+    const fcCell = document.querySelector(`[data-out-forecast="${i}"]`);
+    if(rateCell) rateCell.textContent = fmtNum(rateOf(s.position));
+    if(shareCell) shareCell.textContent = fmtNum(weights[i]);
+    if(salCell) salCell.textContent = fmt(salaries[i]);
+    if(fcCell) fcCell.textContent = fmt(forecastSalaries[i]);
+  });
+
+  document.getElementById('f-hours').textContent = fmtNum(sumHours);
+  document.getElementById('f-share').textContent = fmtNum(totalWeight);
+  document.getElementById('f-salary').textContent = fmt(salaries.reduce((a,b)=>a+b,0));
+  document.getElementById('f-forecast').textContent = fmt(forecastSalaries.reduce((a,b)=>a+b,0));
+
+  // distribution bar
+  const bar = document.getElementById('distbar');
+  const legend = document.getElementById('dist-legend');
+  bar.innerHTML=''; legend.innerHTML='';
+  const totalSalary = salaries.reduce((a,b)=>a+b,0);
+  staff.forEach((s,i)=>{
+    const pct = totalSalary>0 ? salaries[i]/totalSalary*100 : 0;
+    if(pct<=0) return;
+    const color = PALETTE[i % PALETTE.length];
+    const seg = document.createElement('div');
+    seg.className='seg';
+    seg.style.width = pct+'%';
+    seg.style.background = color;
+    seg.textContent = pct>7 ? (s.name||'—') : '';
+    bar.appendChild(seg);
+    const item = document.createElement('div');
+    item.className='item';
+    item.innerHTML = `<span class="sw" style="background:${color}"></span>${s.name||'—'} · ${fmtNum(pct)}%`;
+    legend.appendChild(item);
+  });
+}
+
+// --- expandable "i" info tooltips over calculated results ---
+function initInfoTooltips(){
+  const tip = document.getElementById('info-tooltip');
+  if(!tip) return;
+  let activeBtn = null;
+
+  function closeTip(){
+    tip.classList.remove('open');
+    if(activeBtn) activeBtn.classList.remove('active');
+    activeBtn = null;
+  }
+
+  function openTip(btn){
+    if(activeBtn) activeBtn.classList.remove('active');
+    activeBtn = btn;
+    btn.classList.add('active');
+    tip.textContent = btn.dataset.tip || '';
+    tip.classList.add('open');
+
+    const tipWidth = Math.min(280, window.innerWidth - 20);
+    tip.style.width = tipWidth + 'px';
+
+    const r = btn.getBoundingClientRect();
+    let left = r.left + r.width/2 - tipWidth/2;
+    left = Math.max(10, Math.min(left, window.innerWidth - tipWidth - 10));
+    tip.style.left = left + 'px';
+
+    const spaceBelow = window.innerHeight - r.bottom;
+    if(spaceBelow > 160){
+      tip.style.top = (r.bottom + 8) + 'px';
+      tip.style.bottom = 'auto';
+    } else {
+      tip.style.bottom = (window.innerHeight - r.top + 8) + 'px';
+      tip.style.top = 'auto';
+    }
+  }
+
+  document.querySelectorAll('.info-btn').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      if(activeBtn === btn){ closeTip(); return; }
+      openTip(btn);
+    });
+  });
+
+  document.addEventListener('click', closeTip);
+  window.addEventListener('scroll', closeTip, true);
+  window.addEventListener('resize', closeTip);
+}
+
+function setLamp(id, on, text){
+  const el = document.getElementById(id);
+  el.classList.toggle('on', !!on);
+  document.getElementById(id+'-t').textContent = text;
+}
+
+// --- persist "Ввод данных" (блок 01) between sessions ---
+const STORAGE_KEY = 'fot_calc_block1_inputs_v1';
+const persistedIds = ['i_to','i_marja_plan_tt','i_marja_fact_tt','i_marja_otr','i_os','i_marja_plan_sector','i_marja_fact_sector','i_marja_otr_sector','i_share','i_threshold','i_kd'];
+
+function saveBlock1(){
+  try{
+    const data = {};
+    persistedIds.forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) data[id] = el.value;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){ /* хранилище недоступно — пропускаем */ }
+}
+
+function loadBlock1(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    persistedIds.forEach(id=>{
+      const el = document.getElementById(id);
+      if(el && data[id] !== undefined && data[id] !== '') el.value = data[id];
+    });
+  }catch(e){ /* повреждённые данные — пропускаем */ }
+}
+
+// --- persist "Сотрудники" (блок 03) between sessions ---
+const STORAGE_KEY_STAFF = 'fot_calc_block3_staff_v1';
+
+function saveStaff(){
+  try{
+    localStorage.setItem(STORAGE_KEY_STAFF, JSON.stringify(staff));
+  }catch(e){ /* хранилище недоступно — пропускаем */ }
+}
+
+function loadStaff(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY_STAFF);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    if(Array.isArray(data) && data.length){
+      staff = data.map(s=>({
+        name: s.name || '',
+        hours: parseFloat(s.hours) || 0,
+        position: s.position || (positions[0]?.name || '')
+      }));
+    }
+  }catch(e){ /* повреждённые данные — пропускаем */ }
+}
+
+document.querySelectorAll('[data-toggle]').forEach(h=>{
+  h.addEventListener('click', ()=> h.closest('[data-panel]').classList.toggle('collapsed'));
+});
+
+document.getElementById('add-position').addEventListener('click', ()=>{
+  positions.push({name:'Новая должность', rate:1});
+  renderPositionTable(); renderStaffTable(); compute();
+});
+document.getElementById('add-staff').addEventListener('click', ()=>{
+  staff.push({name:'', hours:0, position: positions[0]?.name || ''});
+  renderStaffTable(); compute(); saveStaff();
+});
+
+document.querySelectorAll('.panel-body input, .panel-body select').forEach(el=>{
+  el.addEventListener('input', compute);
+});
+persistedIds.forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('input', saveBlock1);
+});
+
+loadBlock1();
+renderPositionTable();
+loadStaff();
+renderStaffTable();
+compute();
+initInfoTooltips();
+
+document.getElementById('theme-toggle').addEventListener('click', ()=>{
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+});
+</script>
+</body>
+</html>
